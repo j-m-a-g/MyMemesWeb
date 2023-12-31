@@ -22,7 +22,59 @@
 
 	<Grid>
 
-		<Grid x:Name="LoginGd" Background="#FFD966">
+		<!--  MyMemes product initial advertising and action page  -->
+		<Grid x:Name="WelcomeGreetGd" Background="#262626">
+
+			<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+				<Image
+					Width="100"
+					Height="100"
+					Source="my_memes_icon.png" />
+
+				<TextBlock
+					Margin="0,30,0,5"
+					HorizontalAlignment="Center"
+					FontSize="26"
+					FontWeight="Bold"
+					Foreground="White"
+					Text="Welcome to MyMemes" />
+				<TextBlock
+					Margin="0,0,0,20"
+					HorizontalAlignment="Center"
+					FontSize="18"
+					Foreground="White"
+					Text="Your source for hilarious meme-related content" />
+
+				<HyperlinkButton
+					x:Name="WelcomeGreetLoginHkBn"
+					Margin="0,0,0,10"
+					Padding="10"
+					HorizontalContentAlignment="Center"
+					Background="#ffc63c"
+					Click="WelcomeGreetLoginHkBn_Click"
+					Content="Login with an account"
+					FontWeight="Bold"
+					Foreground="Black" />
+				<HyperlinkButton
+					x:Name="WelcomeGreetGuestHkBn"
+					Padding="10"
+					HorizontalContentAlignment="Center"
+					Background="White"
+					Click="NoLoggingInHkBn_Click"
+					Content="Continue as a guest"
+					FontWeight="Bold"
+					Foreground="Black" />
+
+			</StackPanel>
+
+		</Grid>
+
+		<!--  Login screen  -->
+		<Grid
+			x:Name="LoginGd"
+			Background="#FFD966"
+			Visibility="Collapsed">
 
 			<ScrollViewer
 				x:Name="LoginSlVr"
@@ -49,6 +101,7 @@
 						Foreground="Red"
 						Text="*The username/email or password is incorrect"
 						Visibility="Collapsed" />
+					<!--  Textbox for existing username or email  -->
 					<TextBlock Text="Username or Email" />
 					<TextBox
 						x:Name="UsernameEmailTtBx"
@@ -58,7 +111,9 @@
 						Background="#ffcf4c"
 						BorderThickness="0"
 						FontWeight="Bold"
-						Foreground="White" />
+						Foreground="White"
+						ToolTipService.ToolTip="Enter your username or email here" />
+					<!--  Textbox for existing password  -->
 					<TextBlock Text="Password" />
 					<PasswordBox
 						x:Name="PasswordPdBx"
@@ -68,10 +123,12 @@
 						Background="#ffcf4c"
 						BorderThickness="0"
 						FontWeight="Bold"
-						Foreground="White" />
+						Foreground="White"
+						ToolTipService.ToolTip="Enter your password here" />
 
 					<StackPanel Orientation="Horizontal">
 
+						<!--  Proceed-to-login button  -->
 						<HyperlinkButton
 							x:Name="LoginHkBn"
 							Width="100"
@@ -96,6 +153,10 @@
 
 					</StackPanel>
 
+					<!--
+						Allows user to opt-out of logging in
+						or otherwise continuing as a guest
+					-->
 					<TextBlock
 						Margin="0,10,0,0"
 						HorizontalAlignment="Center"
@@ -114,6 +175,7 @@
 
 			</ScrollViewer>
 
+			<!--  Create account page  -->
 			<ScrollViewer
 				x:Name="CreateAccountSlVr"
 				BorderThickness="0"
@@ -126,6 +188,7 @@
 					HorizontalAlignment="Center"
 					VerticalAlignment="Center">
 
+					<!--  Back-to-login-screen button  -->
 					<HyperlinkButton
 						x:Name="BackToLoginHkBn"
 						HorizontalAlignment="Left"
@@ -149,6 +212,7 @@
 						Foreground="Red"
 						Text="*The entered passwords do not match"
 						Visibility="Collapsed" />
+					<!--  Textbox for username or email  -->
 					<TextBlock Text="Username or Email" />
 					<TextBox
 						x:Name="CreatedUsernameEmailTtBx"
@@ -159,6 +223,7 @@
 						BorderThickness="0"
 						FontWeight="Bold"
 						Foreground="White" />
+					<!--  Textbox for password  -->
 					<TextBlock Text="Password" />
 					<PasswordBox
 						x:Name="CreatedPasswordPdBx"
@@ -169,6 +234,7 @@
 						BorderThickness="0"
 						FontWeight="Bold"
 						Foreground="White" />
+					<!--  Textbox to confirm the prior password  -->
 					<TextBlock Text="Confirm Password" />
 					<PasswordBox
 						x:Name="CreatedConfirmPasswordPdBx"
@@ -186,6 +252,7 @@
 
 		</Grid>
 
+		<!--  Main page of the app  -->
 		<Grid
 			x:Name="LandingGd"
 			Background="#262626"
@@ -195,46 +262,147 @@
 
 				<StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top">
 
-					<TextBlock Foreground="#ffd966" Text="HOME" />
+					<TextBlock
+						x:Name="AppPageHeaderTtBx"
+						Padding="10"
+						Foreground="#ffd966"
+						Text="HOME" />
 
 				</StackPanel>
 
-				<StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top">
+				<ScrollViewer
+					BorderThickness="0"
+					HorizontalScrollBarVisibility="Disabled"
+					VerticalScrollBarVisibility="Auto">
 
-					<TextBlock Foreground="#ffd966" Text="ejfiojeoifajeoifjweo" />
+					<StackPanel>
 
-				</StackPanel>
+						<TextBlock
+							Margin="0,20,0,20"
+							HorizontalAlignment="Center"
+							FontSize="24"
+							FontWeight="Bold"
+							Foreground="White"
+							Text="Memes of the month" />
+
+						<ScrollViewer
+							BorderThickness="0"
+							HorizontalScrollBarVisibility="Auto"
+							VerticalScrollBarVisibility="Auto">
+
+							<Grid>
+
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="350" />
+									<ColumnDefinition Width="350" />
+									<ColumnDefinition Width="350" />
+									<ColumnDefinition Width="350" />
+									<ColumnDefinition Width="350" />
+									<ColumnDefinition Width="350" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="350" />
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+								</Grid.RowDefinitions>
+
+								<Image
+									Grid.Row="0"
+									Grid.Column="0"
+									Margin="0,0,5,0"
+									Source="https://i.ibb.co/VJnvvFZ/meme1.png" />
+								<Frame
+									Grid.Row="1"
+									Grid.Column="0"
+									Background="Black">
+
+									<StackPanel Orientation="Horizontal">
+
+										<Image
+											Width="10"
+											Height="10"
+											Source="icons8_share_96.png" />
+										<HyperlinkButton Content="Share" Foreground="White" />
+
+									</StackPanel>
+
+
+								</Frame>
+
+								<Image
+									Grid.Row="0"
+									Grid.Column="1"
+									Margin="0,0,5,0"
+									Source="https://i.ibb.co/cxb8rMc/meme2.png" />
+
+							</Grid>
+
+						</ScrollViewer>
+
+					</StackPanel>
+
+				</ScrollViewer>
 
 			</StackPanel>
 
-			<StackPanel
-				x:Name="BottomNavigationSkPl"
+			<Grid
+				x:Name="BottomNavigationGd"
 				VerticalAlignment="Bottom"
-				Background="#434343"
-				Orientation="Horizontal">
+				Background="#434343">
 
-				<Button
-					Background="Transparent"
-					BorderThickness="0"
-					Content="Hello" />
-				<Button
-					Background="Transparent"
-					BorderThickness="0"
-					Content="Hello" />
-				<Button
-					Background="Transparent"
-					BorderThickness="0"
-					Content="Hello" />
-				<Button
-					Background="Transparent"
-					BorderThickness="0"
-					Content="Hello" />
-				<Button
-					Background="Transparent"
-					BorderThickness="0"
-					Content="Hello" />
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
 
-			</StackPanel>
+				<!--  Home Page  -->
+				<Image
+					Grid.Row="0"
+					Grid.Column="0"
+					Width="20"
+					Height="20"
+					Margin="0,5,0,0"
+					Source="icons8_home_96.png" />
+				<HyperlinkButton
+					Grid.Row="1"
+					Grid.Column="0"
+					Padding="5,2,5,5"
+					HorizontalAlignment="Center"
+					Background="Transparent"
+					Content="Home"
+					Foreground="White" />
+				<!--  Topics Page  -->
+				<Image
+					Grid.Row="0"
+					Grid.Column="1"
+					Width="20"
+					Height="20"
+					Margin="0,5,0,0"
+					Source="icons8_categorize_96_unfocused.png" />
+				<HyperlinkButton
+					Grid.Row="1"
+					Grid.Column="1"
+					Padding="5,2,5,5"
+					HorizontalAlignment="Center"
+					Background="Transparent"
+					Content="Topics"
+					Foreground="White" />
+				<!--  Account Page  -->
+				<HyperlinkButton
+					Grid.Row="1"
+					Grid.Column="2"
+					Padding="5,2,5,5"
+					HorizontalAlignment="Center"
+					Background="Transparent"
+					Content="Account"
+					Foreground="White" />
+
+			</Grid>
 
 		</Grid>
 

@@ -28,21 +28,65 @@ namespace MyMemesWeb
 			visibleSlVr.Visibility = Visibility.Visible;
 		}
 
-		public void LeaveLoginScreen ()
+		public void LeaveLoginScreen()
 		{
-			LoginGd.Visibility = Visibility.Collapsed;
-			LoginSlVr.Visibility = Visibility.Collapsed;
+			switch (WelcomeGreetGd.Visibility)
+			{
+				case Visibility.Visible:
+				{
+					WelcomeGreetGd.Visibility = Visibility.Collapsed;
+					break;
+				}
+				case Visibility.Collapsed:
+				{
+					break;
+				}
+			}
+			switch (LoginGd.Visibility)
+			{
+				case Visibility.Visible:
+				{
+					LoginGd.Visibility = Visibility.Collapsed;
+					break;
+				}
+				case Visibility.Collapsed:
+				{
+					break;
+				}
+			}
+			switch (LoginSlVr.Visibility)
+			{
+				case Visibility.Visible:
+				{
+					LoginSlVr.Visibility = Visibility.Collapsed;
+					break;
+				}
+				case Visibility.Collapsed:
+				{
+					break;
+				}
+			}
 
 			LandingGd.Visibility = Visibility.Visible;
 		}
-
 		/*
 		 * PROGRAM EVENT HANDLERS
 		 * \\ (Parent container for where the event handlers 
 		 * for the corresponding controls exist)
 		*/
 
+
+		// WelcomeGreetGd
+
+		private void WelcomeGreetLoginHkBn_Click(object sender, RoutedEventArgs e)
+		{
+			WelcomeGreetGd.Visibility = Visibility.Collapsed;
+			LoginGd.Visibility = Visibility.Visible;
+		}
+
+
 		// LoginSlVr
+
 		private void LoginHkBn_Click(object sender, RoutedEventArgs e)
 		{
 			if (UsernameEmailTtBx.Text == userNameEmail && PasswordPdBx.Password == userPassword)
@@ -65,7 +109,9 @@ namespace MyMemesWeb
 			LeaveLoginScreen();
 		}
 
+
 		// CreateAccountSlVr
+
 		private void BackToLoginHkBn_Click(object sender, RoutedEventArgs e)
 		{
 			LoginScreenPageSwitch(LoginSlVr);

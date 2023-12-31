@@ -42,7 +42,6 @@
 	width: 16%;
 	height: 16%;
 	border-radius: 50%;
-	background: #41afe6;
 	filter: blur(4px);
 	opacity: 0;
 	animation: loading-indicator-ball-anim 9s infinite;

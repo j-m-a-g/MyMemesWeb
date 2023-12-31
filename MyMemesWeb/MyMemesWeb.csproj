@@ -25,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="icons8_categorize_96_unfocused.png" />
+    <Content Include="icons8_home_96.png" />
+    <Content Include="icons8_share_96.png" />
     <Content Include="my_memes_icon.png" />
   </ItemGroup>
 
